@@ -1,1 +1,21 @@
-{{ content }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/packages/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+</head>
+
+<body>
+    {% include header.html %}
+    <section class="section px-0 py-3">
+        <div class="container is-max-desktop py-3">
+            {{ content }}
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+{%- if page.image -%}
+{%- assign postImage = page.image | relative_url -%}
+{%- else -%}
+{%- assign postImage = "/assets/images/image-default.png" -%}
+{%- endif -%}
+
+{%- assign postAbstract = post.abstract | truncate: 40 -%}
+
+<a href="{{ post.url }}">
+    {% if featuredPost == true %}
+    <div class="is-flex is-flex-direction-column box is-radiusless p-0" style="height: 100%; max-width: 576px;">
+        <div style="width: 100%; height: 100%;">
+            <figure class="image is-square"><img src="{{ postImage }}" alt='Image Not Found!'></figure>
+        </div>
+        <div class="content is-small p-3">
+            <h1 class="mb-3">{{ post.title }}</h1>
+            <div class="content is-small is-flex mb-3">
+                <p><span>{{ post.author }}</span> | <span>{{ post.date | date_to_long_string }}</span></p>
+            </div>
+            <p>{{ postAbstract }}</p>
+            <p>{% for tag in post.tags %}<span class="tag mr-1 mb-1">{{ tag }}</span>{% endfor %}</p>
+        </div>
+    </div>
+    {% else %}
+    <div class="is-flex is-flex-direction-row box is-radiusless p-0">
+        <div style="min-width: 128px; height: 100%;">
+            <figure class="image is-square"><img src="{{ postImage }}" alt='Image Not Found!'></figure>
+        </div>
+        <div class="content is-small p-3">
+            <h1 class="mb-1">{{ post.title }}</h1>
+            <div class="content is-small is-flex mb-1 p-0">
+                <p>
+                    <span>{{ post.author }}</span> | <span>{{ post.date | date_to_long_string }}</span>
+                </p>
+            </div>
+            <p>{{ postAbstract }}</p>
+            <div class="tags">
+                {% for tag in post.tags %}
+                <span class="tag mr-1 mb-1">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</a>

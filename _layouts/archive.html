@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<!-- This loops through the paginated posts -->
+
+<div class="section px-0 pb-3 pt-0">
+    {% for post in paginator.posts %}
+    <div class="columns pb-3">
+        <div class="column pb-0">
+            {% include post/summary.html post=post %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination links -->
+<div class="section px-0 py-3">
+    <div class="is-flex is-justify-content-space-between is-align-items-center">
+        <!-- previous page -->
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="button">Previous</a>
+        {% else %}
+        <span class="button" disabled>Previous</span>
+        {% endif %}
+        <!-- current page -->
+        <span class="page_number ">
+            <p>Page: {{ paginator.page }} of {{ paginator.total_pages }}</p>
+        </span>
+        <!-- next page -->
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="button">Next</a>
+        {% else %}
+        <span class="button" disabled>Next</span>
+        {% endif %}
+    </div>
+</div>

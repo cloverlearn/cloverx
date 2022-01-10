@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<div class="section px-0 pb-3 pt-0">
+    <div class="is-flex">
+        {% assign count = 0 %}
+        <div class="pr-3" style="min-width: 256px;">
+            {% for post in site.posts %}
+                {% if post.featured == true %}
+                    {% assign count = count | plus: 1 %}
+                    {% assign featuredPost = true %}
+                    {% if count == 1 %}
+                        {% include post/summary.html post=post featuredPost=featuredPost %}
+                    {% endif %}
+                    {% assign featuredPost = false %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% if count > 1 %}
+        {% capture count %}0{% endcapture %}
+        <div style="width: 100%;">
+            {% for post in site.posts %}
+                {% if post.featured == true %}
+                    {% assign count = count | plus: 1 %}
+                    {% if count == 2 or count == 3 or count == 4 %}
+                        <div class="pb-3">{% include post/summary.html post=post %}</div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<div class="section px-0 py-3">
+    <div class="columns is-multiline pb-0">
+        {% assign count = 0 %}
+        {% assign featuredCount = 0 %}
+        {% for post in site.posts %}
+            {% if 5 > count %}
+                {% assign isFeatured = false %} 
+                {% if post.featured == true %}
+                    {% assign featuredCount = featuredCount | plus: 1 %} 
+                    {% if featuredCount == 1 or featuredCount == 2 or featuredCount == 3 or featuredCount == 4 %}
+                    {% assign isFeatured = true %} 
+                    {% endif %}
+                {% endif %}
+                {% if isFeatured == false %}
+                    {% assign count = count | plus: 1 %}
+                    <div class="column is-6">
+                        {% include post/summary.html post=post %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
