@@ -4,15 +4,21 @@ layout: default
 
 <!-- This loops through the paginated posts -->
 
-<div class="section px-0 pb-3 pt-0">
+<div class="columns is-multiline py-0 mt-0 px-1">
+    {%- for post in paginator.posts -%}
+    <div class="column is-12 pt-0 pb-4 px-2">
+        {%- include post/summary.html post=post -%}
+    </div>
+    {%- endfor -%}
+</div>
+
+<!-- <div class="section p-0 pt-0">
     {% for post in paginator.posts %}
-    <div class="columns pb-3">
-        <div class="column pb-0">
-            {% include post/summary.html post=post %}
-        </div>
+    <div class="is-flex is-flex-wrap-wrap pb-4" style="gap: 1rem !important;">
+        {% include post/summary.html post=post %}
     </div>
     {% endfor %}
-</div>
+</div> -->
 
 <!-- Pagination links -->
 <div class="section px-0 py-3">

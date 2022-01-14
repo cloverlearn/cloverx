@@ -3,9 +3,9 @@ layout: default
 ---
 
 <div class="section p-0 pt-0">
-    <div class="is-flex">
+    <div class="is-flex is-flex-wrap-wrap pb-4" style="gap: 1rem !important;">
         {%- assign count = 0 -%}
-        <div class="pr-4" style="min-width: 300px;">
+        <div class="is-flex-grow-2">
             {%- for post in site.posts -%}
             {%- if post.featured == true -%}
             {%- assign count = count | plus: 1 -%}
@@ -19,7 +19,7 @@ layout: default
         </div>
         {%- if count > 1 -%}
         {%- assign count = 0 -%}
-        <div class="is-flex is-flex-direction-column" style="width: 100%; gap: 1rem !important;">
+        <div class="is-flex is-flex-direction-column is-flex-grow-1" style="gap: 1rem !important;">
             {%- for post in site.posts -%}
             {%- if post.featured == true -%}
             {%- assign count = count | plus: 1 -%}
@@ -47,7 +47,7 @@ layout: default
         {%- endif -%}
         {%- if isFeatured == false -%}
         {%- assign count = count | plus: 1 -%}
-        <div class="column is-6 pt-4 px-2">
+        <div class="column is-6 pt-0 pb-4 px-2">
             {%- include post/summary.html post=post %}
         </div>
         {%- endif -%}
