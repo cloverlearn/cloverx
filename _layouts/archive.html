@@ -6,9 +6,9 @@ layout: default
 
 <div class="columns is-multiline py-0 mt-0 px-1">
     {%- for post in paginator.posts -%}
-    <div class="column is-12 pt-0 pb-4 px-2">
-        {%- include post/summary.html post=post -%}
-    </div>
+        <div class="column is-12 pt-0 pb-4 px-2">
+            {%- include post/summary.html post=post -%}
+        </div>
     {%- endfor -%}
 </div>
 
@@ -25,19 +25,22 @@ layout: default
     <div class="is-flex is-justify-content-space-between is-align-items-center">
         <!-- previous page -->
         {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="button">Previous</a>
+            <a href="{{ paginator.previous_page_path }}" class="button">Previous</a>
         {% else %}
-        <span class="button" disabled>Previous</span>
+            <span class="button" disabled>Previous</span>
         {% endif %}
         <!-- current page -->
         <span class="page_number ">
-            <p>Page: {{ paginator.page }} of {{ paginator.total_pages }}</p>
+            <p>Page:
+                {{ paginator.page }}
+                of
+                {{ paginator.total_pages }}</p>
         </span>
         <!-- next page -->
         {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="button">Next</a>
+            <a href="{{ paginator.next_page_path }}" class="button">Next</a>
         {% else %}
-        <span class="button" disabled>Next</span>
+            <span class="button" disabled>Next</span>
         {% endif %}
     </div>
 </div>

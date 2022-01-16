@@ -1,31 +1,30 @@
-<nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
-  <div class="container is-max-tablet">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/" up-follow>
-        <img src="/assets/images/logo.png" width="112" height="28" alt="{{ site.title }}">
-      </a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div id="navMenu" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="/" up-follow>
-          Home
-        </a>
-        <a class="navbar-item" href="/archive" up-follow>
-          Archive
-        </a>
-        <a class="navbar-item" href="/about" up-follow>
-          About
-        </a>
-      </div>
-      <div class="navbar-end">
-        <div class="navbar-item">
+<nav aria-label="main navigation" class="navbar has-shadow" role="navigation">
+    <div class="container is-max-tablet">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/" up-follow>
+                <img src="/assets/images/logo.png" width="112" height="28" alt="{{ site.title }}">
+            </a>
+            <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-      </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/" up-follow>
+                    Home
+                </a>
+                <a class="navbar-item" href="/archive" up-follow>
+                    Archive
+                </a>
+                <a class="navbar-item" href="/about" up-follow>
+                    About
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item"></div>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>

@@ -4,12 +4,15 @@
     <div class="content has-text-centered">
         <p>
             {% if footer.description %}
-                {{ footer.description }}
+            {{ footer.description }}
             {% else %}
-                <strong>{{ footer.title }}</strong> by <a href="{{ footer.author.url }}">{{ footer.author.name }}</a>. 
-                The source code is licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            <strong>{{ footer.title }}</strong>
+            by
+            <a href="{{ footer.author.url }}">{{ footer.author.name }}</a>.
+            The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
             {% endif %}
         </p>
     </div>
