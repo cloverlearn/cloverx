@@ -16,7 +16,7 @@ Thank you for your interest in the cloverX theme. CloverX is a [Jekyll](https://
 
 I created CloverX as a hobby in need for my blog. I have tried different themes out there and coudn't 
 find one that suits my needs: simplicity and minimalism. So I took matters in to my hand and designed and developed this theme.
-This theme is based on popular [Bulma](https://bulma.io/) css framework. As of now, no other external packages are used.
+This theme is based on popular [Bulma](https://bulma.io/) css framework. In addtion, we use [Unpoly](ref) to render the compoenets that are sent from the server without rendering whole webpage again.
 
 <br>
 

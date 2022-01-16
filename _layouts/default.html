@@ -1,21 +1,58 @@
 <!DOCTYPE html>
+{%- assign default_theme = site.default_theme | default: "light" -%}
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/packages/bulma/css/bulma.min.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/packages/bulma/css/bulma.min.css" type="text/css">
+    <link id="themeLink" rel="stylesheet" href="/assets/packages/bulma/css/bulma-dark.css" type="text/css" media="none">
+    <link rel="stylesheet" href="/assets/packages/unpoly/unpoly.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/layout.css" type="text/css">
+    <script src="/assets/packages/unpoly/unpoly.min.js" type="text/javascript"></script>
 </head>
 
 <body>
     {% include header.html %}
-    <section class="section px-0 p-4">
+    <section id="mainSection" class="section px-0 p-4" up-main>
         <div class="container is-max-tablet p-0">
             {{ content }}
         </div>
     </section>
+    {% include footer.html %}
+    <script src="/assets/js/layout.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function updateTheme() {
+            let currentTheme = localStorage.getItem("theme");
+            if (currentTheme === null) {
+                currentTheme = "{{ default_theme }}";
+            }
+            let e = document.getElementById("themeLink");
+            if (currentTheme == 'dark') {
+                e.setAttribute('media', 'screen');
+            } else if (currentTheme == 'system') {
+                e.setAttribute('media', '(prefers-color-scheme: dark)');
+            } else {
+                e.setAttribute('media', 'none');
+            }
+        }
+        
+        up.compiler('#themeSelect', function (element) {
+            let currentTheme = localStorage.getItem("theme");
+            document.getElementById("themeSelect").value = currentTheme;
+        });
+
+        up.on('click', '#saveButton', function (event, element) {
+            let updatedTheme = document.getElementById("themeSelect").value;
+            localStorage.setItem("theme", updatedTheme);
+            updateTheme();
+        });
+
+        up.compiler('#mainSection', (element) => {
+            updateTheme();
+        });
+    </script>
 </body>
 
 </html>

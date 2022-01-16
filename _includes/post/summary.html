@@ -7,7 +7,7 @@
 {%- assign postAbstract = post.abstract | truncate: 40 -%}
 
 
-<a href="{{ post.url }}" class="summary {% if featuredPost %}is-featured{% endif %} " style="width: 100%;">
+<a href="{{ post.url }}" class="summary {% if featuredPost %}is-featured{% endif %} " style="width: 100%;" up-follow>
     {% if featuredPost == true %}
     <div class="box p-0 is-flex is-flex-direction-column" style="height: 100%;">
         <figure class="thumbnail" style="min-height: 250px;">
